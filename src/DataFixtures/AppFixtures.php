@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Category;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -33,6 +34,21 @@ class AppFixtures extends Fixture
             $user->setRoles($userData['roles']);
             $manager->persist($user);
         }
+
+        $categories = [
+            ['name' => 'Electronics', 'description' => 'Electronic gadgets and devices', 'price' => '199.99', 'image' => 'uploads/electronics.jpg'],
+            ['name' => 'Books', 'description' => 'Various kinds of books', 'price' => '29.99', 'image' => 'uploads/books.jpg'],
+            ['name' => 'Clothing', 'description' => 'Fashionable clothing items', 'price' => '49.99', 'image' => 'uploads/clothing.jpg']
+        ];
+        foreach ($categories as $categoryData) {
+            $category = new Category();
+            $category->setName($categoryData['name']);
+            $category->setDescription($categoryData['description']);
+            $category->setImage($categoryData['image']);
+            $category->setDateAdd(new \DateTime());
+            $manager->persist($category);
+        }
+
         $manager->flush();
     }
 }

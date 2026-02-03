@@ -21,9 +21,9 @@ class Category
 
     #[ORM\Column(length: 255)]
     private ?string $description = null;
-
-    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
-    private ?string $price = null;
+//
+//    #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
+//    private ?string $price = null;
 
     #[ORM\Column(length: 255)]
     private ?string $image = null;
@@ -70,18 +70,18 @@ class Category
 
         return $this;
     }
-
-    public function getPrice(): ?string
-    {
-        return $this->price;
-    }
-
-    public function setPrice(string $price): static
-    {
-        $this->price = $price;
-
-        return $this;
-    }
+//
+//    public function getPrice(): ?string
+//    {
+//        return $this->price;
+//    }
+//
+//    public function setPrice(string $price): static
+//    {
+//        $this->price = $price;
+//
+//        return $this;
+//    }
 
     public function getImage(): ?string
     {
